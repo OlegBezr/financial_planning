@@ -19,6 +19,7 @@ class _PlanPageState extends State<PlanPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: webAppBar(
+        context,
         _webViewController, 
         widget.initialUrl
       ),

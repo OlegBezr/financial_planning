@@ -2,6 +2,7 @@ import 'package:financial_planning/pages/about_page.dart';
 import 'package:financial_planning/pages/collaborate_page.dart';
 import 'package:financial_planning/pages/invest_page.dart';
 import 'package:financial_planning/pages/plan_page.dart';
+import 'package:financial_planning/pages/video_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -58,11 +59,23 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           PlanPage(
             initialUrl: 'https://www.moneyguidepro.com/ifa/Guests.aspx?gst=3E308993DF970813397C7D537715510F80511CEB82C9D79F4AFB75FCEC9CB579',
           ),
-          InvestPage(
-            initialUrl: 'https://intelligent-client.schwab.com/iip/#/getStarted'
+          VideoPage(
+            videoSign: 'Watch to learn more',
+            videoAsset: 'assets/videos/invest.mp4',
+            videoUrl: 'https://vimeo.com/457959140',
+            buttonText: 'Start Investing',
+            nextPage: InvestPage(
+              initialUrl: 'https://intelligent-client.schwab.com/iip/#/getStarted'
+            ),
           ),
-          AboutPage(
-            initialUrl: 'https://grantprivate.com/who-we-are/'
+          VideoPage(
+            videoSign: 'About Us',
+            videoAsset: 'assets/videos/about.mp4',
+            videoUrl: 'https://vimeo.com/470751400',
+            buttonText: 'Learn more',
+            nextPage: AboutPage(
+              initialUrl: 'https://grantprivate.com/who-we-are/'
+            ),
           ),
           CollaboratePage(
             initialUrl: 'https://calendly.com/grantprivate/1-hour-zoom-meeting-clone?month=2020-12'

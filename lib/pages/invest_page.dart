@@ -19,6 +19,7 @@ class _InvestPageState extends State<InvestPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: webAppBar(
+        context,
         _webViewController, 
         widget.initialUrl
       ),

@@ -19,6 +19,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: webAppBar(
+        context,
         _webViewController, 
         widget.initialUrl
       ),

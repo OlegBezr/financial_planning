@@ -1,10 +1,13 @@
+import 'dart:ffi';
+
 import 'package:financial_planning/services/launch_url.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-AppBar webAppBar(WebViewController webViewController, String initialUrl) {
+AppBar webAppBar(BuildContext context, WebViewController webViewController, String initialUrl) {
   return AppBar(
+    automaticallyImplyLeading: true,
     backgroundColor: Color(0xff202B3B),
     title: FlatButton(
       splashColor: Colors.amber[800],
