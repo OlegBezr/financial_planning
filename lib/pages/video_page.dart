@@ -1,5 +1,6 @@
 import 'package:chewie/chewie.dart';
 import 'package:financial_planning/services/launch_url.dart';
+import 'package:financial_planning/widgets/contact_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:video_player/video_player.dart';
@@ -40,8 +41,22 @@ class _VideoPageState extends State<VideoPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff202B3B),
-        // centerTitle: true,
+        leading: IconButton(
+          padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+          icon: Icon(
+            CupertinoIcons.bubble_right,
+            size: 25,
+          ),
+          splashColor: Colors.amber[800],
+          highlightColor: Colors.amber[800],
+          onPressed: () {
+            _videoPlayerController.pause().then((value) {
+              showContactDialog(context);
+            });
+          }
+        ),
         title: FlatButton(
+          padding: EdgeInsets.all(0),
           splashColor: Colors.amber[800],
           highlightColor: Colors.amber[800],
           child: Text(
@@ -53,7 +68,9 @@ class _VideoPageState extends State<VideoPage> {
             ),
           ),
           onPressed: () {
-            launchURL('https://grantprivate.com/');
+            _videoPlayerController.pause().then((value) {
+              launchURL('https://grantprivate.com/');
+            });
           },
         ),
       ),
@@ -68,26 +85,29 @@ class _VideoPageState extends State<VideoPage> {
               color: Color(0xff202B3B),
               splashColor: Colors.amber[800],
               highlightColor: Colors.amber[800],
+              minWidth: MediaQuery.of(context).size.width * 8 / 10,
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
                   widget.buttonText,
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 25,
+                    fontSize: 23,
                     color: Colors.white
                   ),
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return widget.nextPage;
-                    },
-                    fullscreenDialog: true
-                  )
-                );
+                _videoPlayerController.pause().then((value) {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return widget.nextPage;
+                      },
+                      fullscreenDialog: true
+                    )
+                  );
+                });
               },
             ),
             Flexible(
@@ -126,7 +146,9 @@ class _VideoPageState extends State<VideoPage> {
                             splashColor: Colors.amber[800],
                             highlightColor: Colors.amber[800],
                             onPressed: () {
-                              launchURL(widget.videoUrl);
+                              _videoPlayerController.pause().then((value) {
+                                launchURL(widget.videoUrl);
+                              });
                             },
                           ),
                         ),

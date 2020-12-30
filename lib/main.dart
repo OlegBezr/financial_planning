@@ -15,6 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.light().copyWith(
+        platform: Theme.of(context).platform,
+      ),
       debugShowCheckedModeBanner: false,
       title: _title,
       home: MyStatefulWidget(),
@@ -56,8 +59,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         allowImplicitScrolling: false,
         controller: _pageController,
         children: <Widget>[
-          PlanPage(
-            initialUrl: 'https://www.moneyguidepro.com/ifa/Guests.aspx?gst=3E308993DF970813397C7D537715510F80511CEB82C9D79F4AFB75FCEC9CB579',
+          VideoPage(
+            videoSign: 'Watch to learn more',
+            videoAsset: 'assets/videos/plan.mp4',
+            videoUrl: 'https://vimeo.com/426111911',
+            buttonText: 'Start financial planning',
+            nextPage: PlanPage(
+              initialUrl: 'https://www.moneyguidepro.com/ifa/Guests.aspx?gst=3E308993DF970813397C7D537715510F80511CEB82C9D79F4AFB75FCEC9CB579',
+            ),
           ),
           VideoPage(
             videoSign: 'Watch to learn more',
