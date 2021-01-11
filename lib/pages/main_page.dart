@@ -1,3 +1,4 @@
+import 'package:financial_planning/models/video_card_info.dart';
 import 'package:financial_planning/pages/plan_page.dart';
 import 'package:financial_planning/widgets/video_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -41,35 +42,70 @@ class _MainPageState extends State<MainPage> {
         controller: _pageController,
         children: <Widget>[
           VideoPage(
-            videoSign: 'Watch to learn more',
-            videoAsset: 'assets/videos/plan.mp4',
-            videoUrl: 'https://vimeo.com/426111911',
+            videos: [
+              VideoCardInfo(
+                videoSign: 'Financial Planning',
+                videoAsset: 'assets/videos/plan.mp4',
+                videoUrl: 'https://vimeo.com/426111911',
+              ),
+              VideoCardInfo(
+                videoSign: 'About MyBlocks',
+                videoAsset: 'assets/videos/myblocks.mp4',
+                videoUrl: 'https://vimeo.com/391562736',
+              ),
+              VideoCardInfo(
+                videoSign: 'Financial Freedom',
+                videoAsset: 'assets/videos/freedom.mp4',
+                videoUrl: 'https://vimeo.com/362370392',
+              )
+            ],
             buttonText: 'Start financial planning',
             nextPage: PlanPage(
               initialUrl: 'https://www.moneyguidepro.com/ifa/Guests.aspx?gst=3E308993DF970813397C7D537715510F80511CEB82C9D79F4AFB75FCEC9CB579',
             ),
           ),
           VideoPage(
-            videoSign: 'Watch to learn more',
-            videoAsset: 'assets/videos/invest.mp4',
-            videoUrl: 'https://vimeo.com/457959140',
+            videos: [
+              VideoCardInfo(
+                videoSign: 'Watch to learn more',
+                videoAsset: 'assets/videos/invest.mp4',
+                videoUrl: 'https://vimeo.com/457959140',
+              )
+            ],
             buttonText: 'Start Investing',
             nextPage: InvestPage(
               initialUrl: 'https://intelligent-client.schwab.com/iip/#/getStarted'
             ),
           ),
           VideoPage(
-            videoSign: 'About Us',
-            videoAsset: 'assets/videos/about.mp4',
-            videoUrl: 'https://vimeo.com/470751400',
+            videos: [
+              VideoCardInfo(
+                videoSign: 'About Us',
+                videoAsset: 'assets/videos/about.mp4',
+                videoUrl: 'https://vimeo.com/470751400',
+              )
+            ],
             buttonText: 'Learn more',
             nextPage: AboutPage(
               initialUrl: 'https://grantprivate.com/who-we-are/'
             ),
           ),
-          CollaboratePage(
-            initialUrl: 'https://calendly.com/grantprivate/1-hour-zoom-meeting-clone?month=2020-12'
+          VideoPage(
+            videos: [
+              VideoCardInfo(
+                videoSign: 'Watch to learn more',
+                videoAsset: 'assets/videos/about.mp4',
+                videoUrl: 'https://vimeo.com/470751400',
+              )
+            ],
+            buttonText: 'Schedule a meeting',
+            nextPage: CollaboratePage(
+              initialUrl: 'https://calendly.com/grantprivate/1-hour-zoom-meeting-clone?month=2020-12'
+            ),
           ),
+          // CollaboratePage(
+          //   initialUrl: 'https://calendly.com/grantprivate/1-hour-zoom-meeting-clone?month=2020-12'
+          // ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
