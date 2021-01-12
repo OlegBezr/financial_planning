@@ -10,37 +10,22 @@ AppBar webAppBar(BuildContext context, WebViewController webViewController, Stri
     automaticallyImplyLeading: true,
     backgroundColor: Color(0xff202B3B),
     centerTitle: true,
-      title: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), color: Colors.transparent,),
-        padding: EdgeInsets.all(8),
-        height: AppBar().preferredSize.height - 8,
-        child: FlatButton(
-          padding: EdgeInsets.all(0),
-          splashColor: Colors.amber[800],
-          highlightColor: Colors.amber[800],
-          child: Image.asset(
-            'assets/images/logo_white.png'
-          ),
-          onPressed: () {
-            launchURL('https://grantprivate.com/');
-          },
+    title: Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), color: Colors.transparent,),
+      padding: EdgeInsets.all(8),
+      height: AppBar().preferredSize.height - 8,
+      child: FlatButton(
+        padding: EdgeInsets.all(0),
+        splashColor: Colors.amber[800],
+        highlightColor: Colors.amber[800],
+        child: Image.asset(
+          'assets/images/logo_white.png'
         ),
+        onPressed: () {
+          launchURL('https://grantprivate.com/');
+        },
       ),
-    // title: FlatButton(
-    //   splashColor: Colors.amber[800],
-    //   highlightColor: Colors.amber[800],
-    //   child: Text(
-    //     'Grant Private',
-    //     style: TextStyle(
-    //       fontWeight: FontWeight.w600,
-    //       fontSize: 19,
-    //       color: Colors.white
-    //     ),
-    //   ),
-    //   onPressed: () {
-    //     launchURL('https://grantprivate.com/');
-    //   },
-    // ),
+    ),
     actions: [
       IconButton(
         padding: EdgeInsets.all(0),

@@ -15,7 +15,6 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
-/// This is the private State class that goes with MyStatefulWidget.
 class _MainPageState extends State<MainPage> {
   var _selectedIndex = 0;
   var _pageController = PageController(
@@ -33,9 +32,6 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('BottomNavigationBar Sample'),
-      // ),
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
         allowImplicitScrolling: false,
@@ -90,22 +86,22 @@ class _MainPageState extends State<MainPage> {
               initialUrl: 'https://grantprivate.com/who-we-are/'
             ),
           ),
-          VideoPage(
-            videos: [
-              VideoCardInfo(
-                videoSign: 'Watch to learn more',
-                videoAsset: 'assets/videos/about.mp4',
-                videoUrl: 'https://vimeo.com/470751400',
-              )
-            ],
-            buttonText: 'Schedule a meeting',
-            nextPage: CollaboratePage(
-              initialUrl: 'https://calendly.com/grantprivate/1-hour-zoom-meeting-clone?month=2020-12'
-            ),
-          ),
-          // CollaboratePage(
-          //   initialUrl: 'https://calendly.com/grantprivate/1-hour-zoom-meeting-clone?month=2020-12'
+          // VideoPage(
+          //   videos: [
+          //     VideoCardInfo(
+          //       videoSign: 'Watch to learn more',
+          //       videoAsset: 'assets/videos/about.mp4',
+          //       videoUrl: 'https://vimeo.com/470751400',
+          //     )
+          //   ],
+          //   buttonText: 'Schedule a meeting',
+          //   nextPage: CollaboratePage(
+          //     initialUrl: 'https://calendly.com/grantprivate/1-hour-zoom-meeting-clone?month=2020-12'
+          //   ),
           // ),
+          CollaboratePage(
+            initialUrl: 'https://calendly.com/grantprivate/1-hour-zoom-meeting-clone?month=2020-12'
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
