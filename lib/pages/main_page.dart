@@ -31,6 +31,8 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    var tabIconSize = MediaQuery.of(context).size.width / 12.5;
+
     return Scaffold(
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
@@ -126,12 +128,12 @@ class _MainPageState extends State<MainPage> {
         ],
         backgroundColor: Color(0xff202B3B),
         currentIndex: _selectedIndex,
-        selectedIconTheme: IconThemeData(size: 28),
-        unselectedIconTheme: IconThemeData(size: 28),
+        selectedIconTheme: IconThemeData(size: tabIconSize),
+        unselectedIconTheme: IconThemeData(size: tabIconSize),
         selectedItemColor: Colors.amber[800],
         unselectedItemColor: Colors.white,
-        selectedFontSize: 17,
-        unselectedFontSize: 17,
+        selectedFontSize: 15,
+        unselectedFontSize: 15,
         showUnselectedLabels: true,
         onTap: _onItemTapped,
       ),

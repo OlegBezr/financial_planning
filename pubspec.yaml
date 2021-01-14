@@ -34,6 +34,8 @@ dependencies:
   # style
   intro_slider: ^2.3.3
   introduction_screen: ^1.0.9
+  # test
+  device_preview: ^0.5.5
 
 dev_dependencies:
   flutter_test:

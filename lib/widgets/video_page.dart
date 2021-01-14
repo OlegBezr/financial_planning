@@ -106,8 +106,8 @@ class _VideoPageState extends State<VideoPage> {
       body: SafeArea(
         child: Column(
           children: [
-            Flexible(
-              flex: 3,
+            Expanded(
+              flex: 1,
               child: Container(),
             ),
             MaterialButton(
@@ -140,91 +140,85 @@ class _VideoPageState extends State<VideoPage> {
                 });
               },
             ),
-            Flexible(
-              flex: 2,
+            Expanded(
+              flex: 1,
               child: Container(),
             ),
-            Flexible(
-              flex: 7,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xff202B3B),
-                    borderRadius: BorderRadius.all(Radius.circular(20))
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            widget.videos[_activeVideo].videoSign,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                              color: Colors.white
-                            ),
-                          ),
-                          Material(
-                            color: Colors.transparent,
-                            child: IconButton(
-                              icon: Icon(
-                                CupertinoIcons.square_arrow_up,
-                                color: Colors.white,
-                                size: 25,
-                              ),
-                              splashColor: Colors.amber[800],
-                              highlightColor: Colors.amber[800],
-                              onPressed: () {
-                                _chewieController.pause().then((value) {
-                                  launchURL( widget.videos[_activeVideo].videoUrl);
-                                });
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        height: MediaQuery.of(context).size.width * 21 / 32,
-                        child: PageView.builder(
-                          onPageChanged: _setActivePlace,
-                          itemCount:  widget.videos.length,
-                          controller: PageController(initialPage: _activeVideo),
-                          itemBuilder: (ctx, index) {
-                            return Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                                  child: SizedBox(
-                                    height: MediaQuery.of(context).size.width * 9 / 16,
-                                    child: Chewie(
-                                      controller: _chewieController,
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: buildDots(_activeVideo,  widget.videos.length)
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            );
-                          }
-                        ),
-                      )
-                    ],
-                  ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Color(0xff202B3B),
+                  borderRadius: BorderRadius.all(Radius.circular(20))
                 ),
-              )
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          widget.videos[_activeVideo].videoSign,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            color: Colors.white
+                          ),
+                        ),
+                        Material(
+                          color: Colors.transparent,
+                          child: IconButton(
+                            icon: Icon(
+                              CupertinoIcons.square_arrow_up,
+                              color: Colors.white,
+                              size: 25,
+                            ),
+                            splashColor: Colors.amber[800],
+                            highlightColor: Colors.amber[800],
+                            onPressed: () {
+                              _chewieController.pause().then((value) {
+                                launchURL( widget.videos[_activeVideo].videoUrl);
+                              });
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.width * 21 / 32,
+                      child: PageView.builder(
+                        onPageChanged: _setActivePlace,
+                        itemCount:  widget.videos.length,
+                        controller: PageController(initialPage: _activeVideo),
+                        itemBuilder: (ctx, index) {
+                          return Column(
+                            children: [
+                              SizedBox(
+                                height: MediaQuery.of(context).size.width * 9 / 16,
+                                child: Chewie(
+                                  controller: _chewieController,
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: buildDots(context, _activeVideo,  widget.videos.length)
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );
+                        }
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
-            Flexible(
-              flex: 2,
+            Expanded(
+              flex: 1,
               child: Container(),
             ),
           ],

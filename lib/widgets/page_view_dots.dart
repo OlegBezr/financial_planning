@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget _inactiveDot() {
+Widget _inactiveDot(BuildContext context) {
   return new Container(
     child: new Padding(
       padding: const EdgeInsets.only(left: 3.0, right: 3.0),
@@ -17,7 +17,7 @@ Widget _inactiveDot() {
   );
 }
 
-Widget _activeDot() {
+Widget _activeDot(BuildContext context) {
   return Container(
     child: Padding(
       padding: EdgeInsets.only(left: 3.0, right: 3.0),
@@ -40,12 +40,12 @@ Widget _activeDot() {
   );
 }
 
-List<Widget> buildDots(int index, int length) {
+List<Widget> buildDots(BuildContext context, int index, int length) {
   List<Widget> dots = [];
 
   for(int i = 0; i < length; ++i) {
     dots.add(
-      i == index ? _activeDot(): _inactiveDot()
+      i == index ? _activeDot(context): _inactiveDot(context)
     );
   }
 
