@@ -65,9 +65,29 @@ class _MainPageState extends State<MainPage> {
           VideoPage(
             videos: [
               VideoCardInfo(
-                videoSign: 'Watch to learn more',
+                videoSign: 'More About Investing',
                 videoAsset: 'assets/videos/invest.mp4',
                 videoUrl: 'https://vimeo.com/457959140',
+              ),
+              VideoCardInfo(
+                videoSign: 'Science of Investing',
+                videoAsset: 'assets/videos/science_investing.mp4',
+                videoUrl: 'https://www.mydimensional.com/videoframe/1919/applying-science-to-investing',
+              ),
+              VideoCardInfo(
+                videoSign: 'Work at Dimensional',
+                videoAsset: 'assets/videos/dimensional_work.mp4',
+                videoUrl: 'https://www.mydimensional.com/videoframe/3735/working-at-dimensional',
+              ),
+              VideoCardInfo(
+                videoSign: 'Dimensional Origins',
+                videoAsset: 'assets/videos/dimensional_origins.mp4',
+                videoUrl: 'https://www.mydimensional.com/videoframe/1921/dimensional-origins',
+              ),
+              VideoCardInfo(
+                videoSign: 'Missing Days',
+                videoAsset: 'assets/videos/best_days.mp4',
+                videoUrl: 'https://videos.dimensional.com/video?v=1_ip614rq2&p=b10a130d-eaed-4b90-a69a-882bf2c3cf15&f=&d=false',
               )
             ],
             buttonText: 'Start Investing',

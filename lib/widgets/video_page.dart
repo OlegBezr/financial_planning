@@ -43,8 +43,9 @@ class _VideoPageState extends State<VideoPage> {
       var oldChewieController = _chewieController;
 
       WidgetsBinding.instance.addPostFrameCallback((_) async {
-        await oldVideoPlayerController.dispose();
-        oldChewieController.dispose();
+        await oldVideoPlayerController.dispose().then((value) {
+          oldChewieController.dispose();
+        });
       });
 
       _videoPlayerController = VideoPlayerController.asset(widget.videos[index].videoAsset);
