@@ -1,5 +1,6 @@
 import 'package:financial_planning/models/video_card_info.dart';
 import 'package:financial_planning/pages/plan_page.dart';
+import 'package:financial_planning/widgets/register_login_dialog.dart';
 import 'package:financial_planning/widgets/video_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -58,9 +59,29 @@ class _MainPageState extends State<MainPage> {
               )
             ],
             buttonText: 'Start financial planning',
-            nextPage: PlanPage(
-              initialUrl: 'https://www.moneyguidepro.com/ifa/Guests.aspx?gst=3E308993DF970813397C7D537715510F80511CEB82C9D79F4AFB75FCEC9CB579',
-            ),
+            onClick: (BuildContext context) {
+              showRegisterLoginDialog(
+                context,
+                PlanPage(
+                  initialUrl: 'https://www.moneyguidepro.com/ifa/selfregister/investorregistration?gst=3E308993DF970813397C7D537715510F80511CEB82C9D79F4AFB75FCEC9CB579'
+                ), 
+                PlanPage(
+                  initialUrl: 'https://www.moneyguidepro.com/first-affirmative/Guests.aspx?gst=&sDestPage=10032'
+                )
+              );
+            },
+            // onClick: (BuildContext context) {
+            //   Navigator.of(context).push(
+            //     MaterialPageRoute(
+            //       builder: (context) {
+            //         return PlanPage(
+            //           initialUrl: 'https://www.moneyguidepro.com/ifa/Guests.aspx?gst=3E308993DF970813397C7D537715510F80511CEB82C9D79F4AFB75FCEC9CB579',
+            //         );
+            //       },
+            //       fullscreenDialog: true
+            //     )
+            //   );
+            // },
           ),
           VideoPage(
             videos: [
@@ -75,14 +96,14 @@ class _MainPageState extends State<MainPage> {
                 videoUrl: 'https://www.mydimensional.com/videoframe/1919/applying-science-to-investing',
               ),
               VideoCardInfo(
-                videoSign: 'Work at Dimensional',
-                videoAsset: 'assets/videos/dimensional_work.mp4',
-                videoUrl: 'https://www.mydimensional.com/videoframe/3735/working-at-dimensional',
-              ),
-              VideoCardInfo(
                 videoSign: 'Dimensional Origins',
                 videoAsset: 'assets/videos/dimensional_origins.mp4',
                 videoUrl: 'https://www.mydimensional.com/videoframe/1921/dimensional-origins',
+              ),
+              VideoCardInfo(
+                videoSign: 'Work at Dimensional',
+                videoAsset: 'assets/videos/dimensional_work.mp4',
+                videoUrl: 'https://www.mydimensional.com/videoframe/3735/working-at-dimensional',
               ),
               VideoCardInfo(
                 videoSign: 'Missing Days',
@@ -91,9 +112,20 @@ class _MainPageState extends State<MainPage> {
               )
             ],
             buttonText: 'Start Investing',
-            nextPage: InvestPage(
-              initialUrl: 'https://intelligent-client.schwab.com/iip/#/getStarted'
-            ),
+            onClick: (BuildContext context) {
+              showRegisterLoginDialog(
+                context,
+                InvestPage(
+                  initialUrl: 'https://intelligent-client.schwab.com/iip/#/getStarted',
+                ), 
+                PlanPage(
+                  initialUrl: 'https://intelligent-client.schwab.com/iip/#/login'
+                )
+              );
+            },
+            // nextPage: InvestPage(
+            //   initialUrl: 'https://intelligent-client.schwab.com/iip/#/getStarted'
+            // ),
           ),
           VideoPage(
             videos: [
@@ -104,9 +136,18 @@ class _MainPageState extends State<MainPage> {
               )
             ],
             buttonText: 'Learn more',
-            nextPage: AboutPage(
-              initialUrl: 'https://grantprivate.com/who-we-are/'
-            ),
+            onClick: (BuildContext context) {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return AboutPage(
+                      initialUrl: 'https://grantprivate.com/who-we-are/'
+                    );
+                  },
+                  fullscreenDialog: true
+                )
+              );
+            },
           ),
           // VideoPage(
           //   videos: [

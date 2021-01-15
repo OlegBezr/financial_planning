@@ -8,11 +8,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPage extends StatefulWidget {
-  VideoPage({this.videos, this.buttonText, this.nextPage});
+  VideoPage({this.videos, this.buttonText, this.onClick});
 
   final List<VideoCardInfo> videos;
   final String buttonText;
-  final Widget nextPage;
+  // final Widget nextPage;
+  final Function onClick; 
 
   @override
   _VideoPageState createState() => _VideoPageState();
@@ -130,14 +131,15 @@ class _VideoPageState extends State<VideoPage> {
               ),
               onPressed: () {
                 _chewieController.pause().then((value) {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return widget.nextPage;
-                      },
-                      fullscreenDialog: true
-                    )
-                  );
+                  widget.onClick(context);
+                  // Navigator.of(context).push(
+                  //   MaterialPageRoute(
+                  //     builder: (context) {
+                  //       return widget.nextPage;
+                  //     },
+                  //     fullscreenDialog: true
+                  //   )
+                  // );
                 });
               },
             ),
