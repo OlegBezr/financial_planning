@@ -3,6 +3,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:financial_planning/pages/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 
 // void main() => runApp(MyApp());
 void main() => runApp(
@@ -18,6 +19,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+
     return MaterialApp(
       locale: DevicePreview.locale(context), // Add the locale here
       builder: DevicePreview.appBuilder,
