@@ -5,6 +5,7 @@ import 'package:financial_planning/widgets/contact_dialog.dart';
 import 'package:financial_planning/widgets/page_view_dots.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPage extends StatefulWidget {
@@ -31,6 +32,7 @@ class _VideoPageState extends State<VideoPage> {
     _videoPlayerController = VideoPlayerController.asset(widget.videos[_activeVideo].videoAsset);
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController,
+      deviceOrientationsAfterFullScreen: [DeviceOrientation.portraitUp],
       aspectRatio: 16/9,
       showControls: true,
       autoInitialize: true,
@@ -52,6 +54,7 @@ class _VideoPageState extends State<VideoPage> {
       _videoPlayerController = VideoPlayerController.asset(widget.videos[index].videoAsset);
       _chewieController = ChewieController(
         videoPlayerController: _videoPlayerController,
+        deviceOrientationsAfterFullScreen: [DeviceOrientation.portraitUp],
         aspectRatio: 16/9,
         showControls: true,
         autoInitialize: true,
