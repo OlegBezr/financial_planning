@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
                 videoUrl: 'https://vimeo.com/362370392',
               )
             ],
-            buttonText: 'Start financial planning',
+            buttonText: 'Start Financial Planning',
             onClick: (BuildContext context) {
               showRegisterLoginDialog(
                 context,
