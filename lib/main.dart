@@ -1,16 +1,24 @@
-import 'package:financial_planning/pages/intro_page.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:financial_planning/pages/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-// void main() => runApp(MyApp());
-void main() => runApp(
-  DevicePreview(
-    enabled: false,
-    builder: (context) => MyApp(), // Wrap your app
-  ),
-);
+import 'pages/onboarding_page.dart';
+
+var showOnboardingPage = true;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  var prefs = await SharedPreferences.getInstance();
+  showOnboardingPage = prefs.getBool("showOnboardingPage");
+  runApp(
+    DevicePreview(
+      enabled: false,
+      builder: (context) => MyApp(), // Wrap your app
+    ),
+  );
+}
 
 /// This is the main application widget.
 class MyApp extends StatelessWidget {
@@ -26,7 +34,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       title: _title,
-      home: MainPage(),
+      home: showOnboardingPage? OnboardingPage() : MainPage(),
       // home: IntroPage(
       //   onIntroEnd: (context) {
       //     Navigator.of(context).pushReplacement(
