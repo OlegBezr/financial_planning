@@ -11,7 +11,9 @@ var showOnboardingPage = true;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   var prefs = await SharedPreferences.getInstance();
-  showOnboardingPage = prefs.getBool("showOnboardingPage");
+
+  if (prefs.containsKey("showOnboardingPage"))
+    showOnboardingPage = prefs.getBool("showOnboardingPage");
   runApp(
     DevicePreview(
       enabled: false,
