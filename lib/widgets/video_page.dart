@@ -191,32 +191,35 @@ class _VideoPageState extends State<VideoPage> {
                     ),
                     Container(
                       height: MediaQuery.of(context).size.width * 21 / 32,
-                      child: PageView.builder(
-                        onPageChanged: _setActivePlace,
-                        itemCount:  widget.videos.length,
-                        controller: PageController(initialPage: _activeVideo),
-                        itemBuilder: (ctx, index) {
-                          return Column(
-                            children: [
-                              SizedBox(
-                                height: MediaQuery.of(context).size.width * 9 / 16,
-                                child: Chewie(
-                                  controller: _chewieController,
-                                ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(4.0),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: buildDots(context, _activeVideo,  widget.videos.length)
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.width * 9 / 16,
+                            child: PageView.builder(
+                              onPageChanged: _setActivePlace,
+                              itemCount:  widget.videos.length,
+                              controller: PageController(initialPage: _activeVideo),
+                              itemBuilder: (ctx, index) {
+                                return SizedBox(
+                                  height: MediaQuery.of(context).size.width * 9 / 16,
+                                  child: Chewie(
+                                    controller: _chewieController,
                                   ),
-                                ),
+                                );
+                              }
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: buildDots(context, _activeVideo,  widget.videos.length)
                               ),
-                            ],
-                          );
-                        }
+                            ),
+                          ),
+                        ],
                       ),
                     )
                   ],
